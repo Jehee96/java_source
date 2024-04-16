@@ -12,6 +12,7 @@ public class Ex25_AnonyMain {
 		Ex25_Saram saram2 = person.getSaram();
 		System.out.println(saram2.getIr());
 		
+		System.out.println("hotfix 작업공간에서 적음");
 	}
 
 }

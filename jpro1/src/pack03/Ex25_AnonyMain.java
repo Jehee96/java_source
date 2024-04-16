@@ -13,6 +13,8 @@ public class Ex25_AnonyMain {
 		System.out.println(saram2.getIr());
 		
 		System.out.println("hotfix 작업공간에서 적음");
+		
+		System.out.println("hotfix 작업공간에서 행 추가");
 	}
 
 }

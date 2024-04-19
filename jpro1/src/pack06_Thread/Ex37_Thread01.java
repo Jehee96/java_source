@@ -18,7 +18,7 @@ public class Ex37_Thread01 extends Thread {	// Thread는 추상 클래스이다.
 	}
 
 	public static void main(String[] args) {
-		// Thread
+		// Thread (단일 프로그램에는 사용하지 않는다.)
 		// 하나의 응용 프로그램은 운영체제에 의해 process(작업단위)를 확보하고
 		// 응용 프로그램의 실행은 thread가(실행단위) 담당한다.
 		// 기본적으로 main thread에 의해 응용 프로그램은 실행된다.

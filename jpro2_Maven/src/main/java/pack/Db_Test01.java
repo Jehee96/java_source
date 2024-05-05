@@ -1,4 +1,6 @@
 package pack;
+// 환경은 pom.xml이 정해준다.
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,9 +11,9 @@ import java.util.Iterator;
 // 관계형데이터베이스(RDBMS 사용)
 // MariaDB(원격 DB 서버) 연동 프로그래밍
 public class Db_Test01 {
-	private Connection conn; // Connection은 하나만
-	private Statement stmt;	 // Statement : sql 실행할 수 있고 여러개 가능
-	private ResultSet rs; 	 
+	private Connection conn;
+	private Statement stmt;
+	private ResultSet rs; // 커서가 있는 행만 참조할 수 있다.
 
 	public Db_Test01() {
 		// 1. Driver file loading
@@ -47,6 +49,7 @@ public class Db_Test01 {
 				int dan = rs.getInt("dan");	// 단가
 				System.out.println(code + " " + sangname + " " + su + " " + dan);
 			}
+			
 			
 			
 			System.out.println("-----------------");

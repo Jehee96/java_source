@@ -147,9 +147,6 @@ public class Ex51_GuiExam02 extends JFrame implements ActionListener {
 			// 계산
 			int result;
 			
-
-			
-
 		}
 
 	}

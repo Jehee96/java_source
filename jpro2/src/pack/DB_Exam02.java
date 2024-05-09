@@ -17,11 +17,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+// DB 1번 문제
 public class DB_Exam02 extends JFrame implements ActionListener {
-	JTextField co = new JTextField("", 5);
-	JTextField pum = new JTextField("", 10);
-	JTextField su = new JTextField("", 10);
-	JTextField dan = new JTextField("", 10);
+	JTextField code = new JTextField("", 5);
+	JTextField name = new JTextField("", 10);
+	JTextField count = new JTextField("", 10);
+	JTextField price = new JTextField("", 10);
 	JButton btPlus = new JButton("추가");
 	JTextArea txtResult = new JTextArea();
 	String sql = "";
@@ -36,7 +37,7 @@ public class DB_Exam02 extends JFrame implements ActionListener {
 		layoutInit();
 		accDB();
 
-		setBounds(300, 300, 600, 300);
+		setBounds(300, 300, 700, 300);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -47,13 +48,13 @@ public class DB_Exam02 extends JFrame implements ActionListener {
 		// 1행_코드, 품명, 수량, 단가
 		JPanel panel1 = new JPanel();
 		panel1.add(new JLabel("코드 : "));
-		panel1.add(co);
+		panel1.add(code);
 		panel1.add(new JLabel("품명 : "));
-		panel1.add(pum);
+		panel1.add(name);
 		panel1.add(new JLabel("수량 : "));
-		panel1.add(su);
+		panel1.add(count);
 		panel1.add(new JLabel("단가 : "));
-		panel1.add(dan);
+		panel1.add(price);
 		panel1.add(btPlus);
 		add("North", panel1);
 
@@ -63,33 +64,28 @@ public class DB_Exam02 extends JFrame implements ActionListener {
 		btPlus.addActionListener(this);
 	}
 
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			String code = co.getText();
-			String pm = pum.getText();
-			String getsu = su.getText();
-			String danga = dan.getText();
-			
+			String co = code.getText();
+			String na = name.getText();
+			String cn = count.getText();
+			String pr = price.getText();
+
 			sql = "insert into sangdata values(?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, code);
-			pstmt.setString(2, pm);
-			pstmt.setString(3, getsu);
-			pstmt.setString(4, danga);
+			pstmt.setString(1, co);
+			pstmt.setString(2, na);
+			pstmt.setString(3, cn);
+			pstmt.setString(4, pr);
 			rs = pstmt.executeQuery();
-			
-			
+
 			display();
-			
+
 		} catch (Exception e2) {
 			JOptionPane.showMessageDialog(this, "다시 입력해주세요..");
 		}
 	}
-		
-		
-	
 
 	private void accDB() {
 		try {
@@ -117,7 +113,7 @@ public class DB_Exam02 extends JFrame implements ActionListener {
 
 	private void display() {
 		try {
-			DecimalFormat df = new DecimalFormat("###,###");
+			DecimalFormat df = new DecimalFormat("#,##0");
 			sql = "select * from sangdata";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();

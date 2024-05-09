@@ -65,7 +65,7 @@ public class Db_Exam01 {
 				System.out.println(sb + " " + name + " " + num + " " + jik + " " + pay);
 				count++;
 			}
-			System.out.println("건수 : " + count);
+			System.out.println("건수 : " +count);
 
 //			String sql = "Select count(*) as 건수 from jikwon where ";
 //			rs = st.executeQuery(sql);

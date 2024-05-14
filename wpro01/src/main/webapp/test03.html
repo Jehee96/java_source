@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	Table Tag 연습
+	<br>
+	<table border="1">
+		<!-- 테이블에 보더 만드는 것은 권장하지 않음. -->
+		<thead>
+			<tr>
+				<!-- thead, tbody는 생략 가능 -->
+				<th>제목1</th>
+				<th>제목2</th>
+				<th>제목3</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>내용1</td>
+				<td>내용2</td>
+				<td>내용3</td>
+			</tr>
+			<tr>
+				<td>내용4</td>
+				<td>내용5</td>
+				<td>&nbsp;</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<table border="2" bgcolor="gold"
+		style="background-image: url('images/snow.png')">
+		<caption>상품자료</caption>
+		<tr bgcolor="green">
+			<td bgcolor="orange"><b>상품명</b></td>
+			<td>수량</td>
+			<td>단가</td>
+		</tr>
+		<tr>
+			<td>컴퓨터</td>
+			<td align="center">2</td>
+			<td><img src="images/pic.jpg" width="100"> <!-- 셀 안에는 txt 말고 img도 들어갈 수 있다. -->
+			</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>
+				<table border="3">
+					<tr>
+						<td><a href="https://www.daum.net">Daum</map></a></td>
+						<!-- 테이블이 셀 안으로도 들어갈 수 있다. -->
+						<td>나</td>
+					</tr>
+				</table>
+			</td>
+			<td>c</td>
+		</tr>
+	</table>
+
+	<br>
+	<!-- 행 병합(Row Span), 열 병합(Col Span) -->
+	<table border="1" width="60%">
+		<!-- 숫자만 주면 크기조정 해도 정한 값의 크기로만 표현됨. 비율(%)로 주면 그만큼 유연하게 표현됨. -->
+		<tr>
+			<td colspan="2">a</td>
+			<td>b</td>
+			<td rowspan="2">c</td>
+		</tr>
+		<tr>
+			<td>d</td>
+			<td>e</td>
+			<td>f</td>
+		</tr>
+	</table>
+
+	<br>
+	<table border="1" width="200">
+		<tr>
+			<td rowspan="2">1</td>
+			<td rowspan="2">2</td>
+			<td rowspan="2">3</td>
+		</tr>
+		<tr>
+			<td colspan="2">4</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>6</td>
+			<td>7</td>
+			<td rowspan="2">8</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td colspan="2">10</td>
+		</tr>
+	</table>
+<br><br>
+한 화면에서 여러 개의 HTML 문서를 보고자 할 경우 iframe 사용<br>
+<iframe src="test01.html" name="star" width="99%" height="300"></iframe>
+<br/>
+<a href="test02.html" target="star">test02 보기(iframe에서)</a>
+<p/>
+이미지 맵 : 이미지를 여러 영역으로 지정해 각 영역마다 link를 걸 수 있다.
+<br>
+<img src="images/snow.png" width="150" usemap="#snow"/> <!-- 이름 줄 때는 #을 붙인다. -->
+<map name="snow">
+	<area shape="rect" coords="0,0,50,50" href="https://www.naver.com">
+	<area shape="rect" coords="50,100,100,200" href="https://www.w3.org">
+</map>
+<pre>
+.
+.
+.
+.
+.
+</pre>
+
+</body>
+</html>

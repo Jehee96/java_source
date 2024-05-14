@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>게시판 글 쓰기</h2>
+	<form action="border.jsp" name="frm" method="get"> <!-- method="get"를 안쓰면 기본값(get)으로 설정됨 -->
+		<table border="1">
+			<tr>
+				<td>이름 :</td>
+				<td><input type="text" name="writer"></td>
+			</tr>
+			<tr>
+				<td>제목 :</td>
+				<td><input type="text" name="subject" placeholder="제목을 입력하세요"></td> <!-- placeholder : Tip!! -->
+			</tr>
+			<tr>
+				<td>나이 :</td>
+				<td><input type="number" name="age" value="29"></td>
+				<!-- value로 초기치를 줘도 된다. -->
+			</tr>
+			<tr>
+				<td>이메일 :</td>
+				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>글내용 :</td>
+				<td><textarea rows="10" cols="50" name="content"></textarea></td>
+				<!-- textarea는 절대 줄넘김 하면 안된다. error찾기 힘들다. -->
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="전 송">
+					<input type="submit" value="취 소"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

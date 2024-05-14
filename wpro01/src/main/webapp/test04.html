@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="홍길동">
+<meta name="subject/title" content="연습용 홈페이지">
+<meta name="date" content="20214-05-13">
+
+<!-- 검색 로봇에 의해 검색을 당할 자료를 적음 -->
+<meta name="keyword" content="html 정보 설명">
+<meta name="description" content="홈페이지 작성 정보">
+
+<!-- <meta http-equiv="refresh" content="3; url=test01.html"> : 3초 뒤 test01.html페이지로 넘어간다는 뜻 -->
+<title>Insert title here</title>
+</head>
+<body>
+Form Tag : 사용자와 정보를 소통할 수 있는(상호작용이 가능) 태그
+<hr>
+<h2>개인 정보 입력 창</h2>
+<form action="#" name="frm" method="get">
+1. 이름 : <input type="text" id="ir" name="name" size="10" maxlength="10" value="tom"><br>
+2. ID : <input type="text" name="ID"><br/>
+3. PW : <input type="password" name="PWD" value="123">
+4. 사진 로딩 : <input type="file" name="fname"><br/>
+	5. 자기 소개 : <textarea rows="5" cols="60" name="my"></textarea><br>
+
+6. 성별 : <input type="radio" name="gender" value="M">남자&nbsp;&nbsp;&nbsp;
+<input type="radio" name="gender" value="F" checked="checked">여자
+ <!-- checked="checked"에서 checked만 써도 된다. 라디오버튼은 그룹화를 해야 하기 때문에 이름이 같아야 한다. -->
+ <br>
+ 7. 스포츠 : <input type="checkbox" name="sports" value="축구">축구&nbsp;&nbsp;&nbsp;
+ <input type="checkbox" name="sports" value="농구">농구&nbsp;&nbsp;&nbsp;
+ <input type="checkbox" name="sports" value="야구">야구<br/>
+ 
+ 8. 교통 수단
+<select name="tr"> <!-- size="1" : 한개만 선택. multiple="multiple은 복수개 -->
+	<option value="도보">"도보"</option>
+	<option value="버스">"버스"</option>
+	<option value="전철">"전철"</option>
+</select>
+
+<br>
+9. 숨김
+<input type="hidden" name="hello" value="hi">
+<br><br>
+<input type="submit" value="전  송">
+</form>
+</body>
+</html>

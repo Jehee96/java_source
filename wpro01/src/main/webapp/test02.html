@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지와 링크</title>
+</head>
+<body>
+이미지 출력<br>
+<!-- 내 컴퓨터의 이미지 가져오기 -->
+<img src="images/pic.jpg" width="300" height="300" title ="그림">
+<br>
+<!-- 다른 서버의 이미지 가져오기 -->
+<img src="https://t1.daumcdn.net/daumtop_deco/images/pctop/2023/logo_daum.png">
+<br>
+<embed src="images/tetris.swf" autostart="true" autoplay="true"> <!-- 움직이는 파일은 embed -->
+<hr>
+a 태그 : 하이퍼링크가 가능하다.<br>
+<a href="test01.html">test01 문서</a>보기<br>
+<a href="http://127.0.0.1:80/wpro01/test01.html">test01 문서</a>보기<br>
+     <!-- Hyper Link / Hyper Text -->
+<a href="test01.html" target="_self"> test01 문서(_self)</a>보기
+<a href="test01.html" target="_new"> test01 문서(_new)</a>보기
+<a href="test01.html" target="_blank"> test01 문서(_blank)</a>보기
+
+<a href="https://www.naver.com">네이버 출발</a><br>
+<a href="https://www.naver.com" target="_new">네이버 출발(_new)</a><br>
+
+<!-- 하이퍼 이미지  -->
+<a href="test01.html">
+	<img title="연습" src="images/pic.jpg" width="300" height="300">
+</a><br>
+
+<!-- 엑셀, 텍스트문서도 하이퍼링크를 걸 수 있다. 브라우저가 파싱할 능력이 없으면 다운로드를 시켜버린다. -->
+<a href="files/book1.xlsx">엑셀문서</a><br>
+<a href="files/code.txt">텍스트문서</a><br>
+<!-- 404에러 : file not found -->
+<!-- <a href="files/hello.txt">텍스트문서</a><br> -->
+
+<a href="mailto:yjh_96@naver.com">제히에게 메일 전송</a>
+
+
+<hr>
+<a href="META-INF/aaa.html">META-INF 폴더 내 파일</a><br>
+<a href="WEB-INF/bbb.html">WEB-INF 폴더 내 파일</a><br>
+
+<a href="kbs/a.html">kbs 폴더</a><br>
+<a href="/wpro01/kbs/a.html">kbs 폴더</a><br>
+<a href="/kbs/a.html">kbs 폴더</a><br>
+
+<!-- 하위 디렉토리 이동 시 -->
+<a href="kbs/sbs/b.html">sbs 폴더</a><br>
+<a href="kbs/sbs/tvn/c.html">tvn 폴더</a><br>
+
+<pre>
+.
+.
+.
+.
+.
+</pre>
+</body>
+</html>

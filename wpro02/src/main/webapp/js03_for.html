@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>반복문 for</h2>
+	<script type="text/javascript">
+for(let a = 1; a <= 5; a++) {
+	document.write(`a값은 ${a}<br>`);
+}
+// document.write(`for문을 벗어난 a값은 ${a}<br>`);
+
+for(let a = (2*5); a >= 1; a -= 2) {
+	document.write(`a값은 ${a}<br>`);
+}
+
+document.write('<br>');
+for(let a = 1; a <= 3; a++) {
+	document.write(`a값은 ${a}&nbsp;&nbsp;`);
+	for(let b = 1; b <= 5; b++) {
+		document.write(`a값은 ${b}&nbsp;&nbsp;`);
+	}
+	document.write('<br>');
+}
+document.write('<br>');
+for(let a = 1; a <= 10; a++) {
+	if(a === 3) continue;
+	if(a === 6) break;
+	document.write(`a값은 ${a}`);
+}
+</script>
+
+
+
+	<h1>문제</h1>
+	<script type="text/javascript">
+// 문제 01번) 1 ~ 100 사이의 정수 중 3의 배수의 합과 갯수 출력
+let count = 0;
+let sum = 0;
+for(let b=1; b <= 100; b++){
+	if(b % 3 === 0) {
+		sum += b;
+		count++;
+	}
+}
+document.write(`갯수는${count} 합은${sum}<br>`)
+
+
+// 문제 02번) 1 ~ 1000 사이의 정수 중 2의 배수이나 5의 배수가 아닌 수의 합 출력 (switch)
+// 조건 : 숫자가 100을 넘으면 작업 중지 
+let tot = 0;
+for(let c = 1; c <= 1000; c++){
+	if(c > 100){
+	break;
+	}
+	if(c % 2 === 0 && c % 5 !== 0) {
+	tot += c;
+	}
+}
+document.write(`합은${tot}<br>`);
+
+
+// 문제 03번) 2 ~ 9단 까지의 구구단 출력(table tag를 사용. border='1')
+// 조건 : 각 단은 행으로 구분
+// 조건 : 짝수 단은 노랑으로 배경을 채움. style 적용(인라인 방식)
+document.write(`<table border ="1" >`);
+for(let a=1;a<=9;a++){
+	document.write(`<tr><td `);
+	if(a%2 === 0){
+		document.write(`style= "background-color : yellow">`);
+	}else{
+		document.write(`>`);
+	}
+	for(let b=1; b<=9; b++){
+		document.write(`${a} * ${b} =${a*b} &nbsp; &nbsp;`);
+	}
+	document.write(`</td></tr>`);
+}
+	document.write(`</table>`);
+</script>
+
+
+</body>
+</html>

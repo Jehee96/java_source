@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/* 주석 */
+/* External 방식 : 외부 스타일 시트 */
+
+#i2 {
+	background-color: yellow;
+	color: red;
+	font-size: 20px;
+}
+
+
+/* text-decoration: line-through; : h1, h2에 취소선 긋기 */
+h1, h2 {
+	text-decoration: line-through;
+}
+
+
+/* border: 1px solid : 가는 실선. 실선 굵기는 1px가 결정한다.
+rgb같은 경우는 같은 숫자가 연속적으로 있으면 3개만 써도 된다. ex) ddd */
+table {width: 70%; margin-bottom: 10px; border: 1px solid #dddddd;}
+
+
+/* table에 종속된 table의 자식 tr, tr의 자식 td에 적용한다는 뜻 */
+table tr td {
+	padding: 5px 10px; border-top: 1px dotted rgb(0,0,255); /* tr */
+					border-bottom: 3px double rgb(255,0,0); /* td */
+}
+
+
+/* input에 적용 */
+input {
+	border: 5px solid; background-color: rgb(90%,60%,0%);
+}
+
+/* class가 btn.Ok인 것에 대해서 적용 */
+input.btnOk {
+	border: 1px dotted; background-color: olive;
+}
+
+/* 동적 선택자 */
+/* focus에 맞춰 색이 변함 */
+input:focus {
+	background-color: #aabbcc;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:active {
+	color: yellow; font-family: 궁서;
+}
+
+a:hover {
+	font-size: 30px; cursor: crosshair;
+}
+
+i,strong {
+	color: #000; background: silver;
+}
+
+b {font-size: 8px;}
+div b {font-size: 16px;}   /* div의 자손 b태그 */
+div > b {font-size: 24px;} /* div의 직계 자식 b태그 */
+div span b {font-size: 32px;}
+
+div b#hi {font-size: 40px;}    /* id */
+div b.hello {font-size: 46px;} /* class */
+
+div#pic {height: 130px; background-color: yellow;
+		background-image: url('../images/snow.png');
+}
+
+img {
+	border: 10px dotted red;
+}
+
+
+

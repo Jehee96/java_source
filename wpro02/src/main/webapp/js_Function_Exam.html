@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 함수 연습</title>
+</head>
+<body>
+<h2>!!자바스크립트 함수 연습!!</h2>
+<script type="text/javascript">
+// 문1) 두 수를 함수로 입력하여 +, -, *, / 한 결과를 함수 내에서 각각 출력하세요.
+function showOper(a,b){
+	let calc = [
+		a + b, 
+		a - b,
+		a * b,
+		a / b
+	]
+	return calc;
+}
+
+// 문2) 주어진 배열의 모든 요소의 합을 반환하는 함수를 작성하세요.
+/* const sumArray = [1, 2, 3, 4, 5];
+let sum = 0;
+for(let i = 0; i < sumArray.length; i++){
+	sum += sumArray[i];
+console.log(sum);
+}
+
+const sumArray1 = [10, 20, 30];
+let sum1 = 0;
+for(let i = 0; i < sumArray1.length; i++){
+	sum1 += sumArray1[i];
+console.log(sum);
+} */
+	function sumArray(arr){
+	let sum = 0;
+	for(a = 0; a < arr.length; a++){
+		sum += arr[a];
+	}
+	return sum;
+	document.write('<br>');
+}
+
+// 문3) 주어진 숫자의 팩토리얼을 구하는 함수를 작성하세요. 팩토리얼은 1부터 주어진 숫자까지의 모든 숫자의 곱이다.
+function factorial(n){
+	let result = 1;
+	for(let i = 1; i <= n; i++){
+		result = result * i
+	}
+	return result;
+	document.write('<br>');	
+}
+
+// 문4) 주어진 문자열에서 특정 문자의 개수를 세는 함수를 작성하세요.
+/* const arr = ['h', 'e', 'l', 'l', 'o'];
+let count = 0;
+for(let i = 0; i < arr.length; i++){
+	if(arr[i] === 'l') {
+		count++;
+	}
+}
+document.write(`count : ${count}<br>`); */
+
+// --------------------
+function countChar(str, char) {
+	let count = 0;
+	for (let i = 0; i < str.length; i++) {
+		if (str[i] === char) {
+			count ++;
+			}
+		}
+	return count;	
+}
+document.write(countChar("hello", "l"));
+
+// 문5) 주어진 문자열 myString에서 숫자를 추출하여 그 합을 반환하는 함수를 작성하세요.
+/* const myString = '1a2b3c4d123';
+const regex = /[^0-9]/g;
+const result = myString.replace(regex," ");
+const num = parseInt(result); */
+
+/* function cc(){
+	const myString = '1a2b3c4d123';
+	const regex = /[^0-9]/g;
+	const result = myString.replace(regex," ");
+	const num = parseInt(result);
+	
+	return sum;
+} */
+const myString = "1a2b3c4d123"
+function totShow(myString) {
+    let chars = myString.split("");
+    let total = 0;
+
+    for (let char of chars) {
+        if (!isNaN(char) && char !== ' ') {
+            total += +char; // parseInt
+        }
+    }
+    return total;
+}
+
+document.write(totShow(myString));
+
+</script>
+</body>
+</html>

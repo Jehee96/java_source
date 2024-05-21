@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 01. 화살표 함수
+const sum1 = function(a, b) {
+	return a + b;
+}
+console.log(`두 수의 합은 ${sum1(3, 4)}`);
+
+const sum2 = (a, b) => a + b;
+console.log(`두 수의 합은 ${sum1(3, 4)}`);
+
+let double1 = (n) => n * 2;
+console.log(double1(3)); // n에 3을 받음
+
+let sayHi = () => '안녕하세요'; // 파라미터가 하나면 소괄호 생략 가능. 파라미터가 없으면 소괄호를 둘러준다.
+console.log(sayHi());
+
+// let age = prompt('나이 입력', 22);
+let age = 33;
+let welcome = (age < 30) ? () => "안녕" : () => "반가워"; // 참이면 안녕, 거짓이면 반가워
+console.log(welcome());
+
+
+// 02. 콜백함수(CallBack Function)
+// 프로그래밍에서 콜백 함수는 다른 코드의 인수로서 넘겨주는 실행 가능한 코드를 말한다.
+// 콜백을 넘겨받는 코드는 이 콜백을 필요에 따라 즉시 실행할 수도 있고, 아니면 나중에 실행할 수도 있다.
+console.log('------------');
+// console.clear(); 콘솔 비우기
+let sumFunc = (a, b) => {
+	let result = a + b;
+	return result;
+};
+console.log(`sumFunc 결과 : ${sumFunc(3, 4)}`); 
+
+// 반복문 처리 : for
+console.log('------------');
+function func(...para) {
+	console.log(para.length, ' ', para);
+	
+	for(let i = 0; i < para.length; i++) {
+		console.log(para[i]);
+	}
+	
+	for(let s of para) {
+		console.log(s);
+	}
+	
+	// Array.forEach(callbackFn [,arg]) << 반환값 없음.
+	para.forEach(function(obj) { // 콜백함수
+		console.log(obj);
+	});
+	
+	(para.forEach((obj) => console.log(obj)));
+}
+func('a', 'b', 'c', 'd')
+
+console.log('----- 콜백함수 : 수행을 예약해놓은 함수 -----');
+	/* function showOk() {
+		console.log('동의합니다')
+	}
+	
+	function showCancel() {
+		console.log('아니오')
+	}
+	
+function ask(question, yes, no) {
+	if(confirm(question)) yes(); else no();
+	
+}
+ask("동의합니까?", showOk, showCancel); */
+
+
+// setInterval() 함수는 어떤 코드를 일정한 시간 간격을 두고 반복해서 실행한다.
+//setInterval(() => console.log(new Date()), 2000); // setInterval(수행함수, 시간) : 2초에 한 번씩 날짜가 찍힘
+
+// setTimeout() 함수는 어떤 코드를 바로 실행하지 않고 일정 시간 기다린 후 실행해야 하는 경우.
+// setTimeout(() => console.log("2초 후에 실행됨"), 2000);
+
+// 처리 2는 3초 후에 찍힘
+console.log('처리 1');
+setTimeout(function() {
+	console.log('처리 2');
+}, 3000);
+console.log('처리 3');
+
+
+// argument로 화살표 함수 사용
+function abcFunc(su, f1, f2) {
+	if(su % 2 === 0) f1(); else f2();
+}
+abcFunc(2, () => console.log('짝수'), () => console.log('홀수'));
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+<h2>화살표 함수</h2>
+함수 표현식보다 단순하고 간결한 문법으로 함수를 만들 수 있는 방법이 있다.
+바로 화살표 함수(arrow function)를 사용하는 것이다.
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.getElementById("dan").onchange = function() {
+	let dan = document.getElementById("dan").value;
+	let tableElement = "<table class='table table-hover' border='1'>";
+	
+	/* for (let i = 2; i <= 9; i++) {
+		tableElement += "<tr>";
+		tableElement += "<td>" + i + "단</td>"; */
+
+		if(dan) {
+			tableElement += "<tr>";
+			tableElement += "<td>" + dan + "단</td>";
+		
+		
+		for (let j = 1; j <= 9; j++) {
+			tableElement += "<td>" + (dan * j) + "</td>";
+		}
+		tableElement += "</tr>";
+	}
+		tableElement += "</table>";
+
+		document.getElementById("show").innerHTML = tableElement;
+	}
+	
+}
+
+
+function addRow(dan, comments) {
+	// <tr> 생성
+	let row = document.createElement('tr');
+	let col = addCol(dan);
+	row.appendChild(col);	// <tr><td>단</td></tr>
+	col = addCol(comments);
+	row.appendChild(col);	// <tr><td>단</td><td>값</td></tr>
+
+	document.getElementById("myTbody").appendChild(row);
+}
+
+function addCol(para) {
+	// <td> 생성
+	let col = document.createElement('td');
+	let dtext = document.createTextNode(para);
+	col.appendChild(dtext);
+	return col;	//<td>값</td>
+}
+	
+function cleFunc() {
+	let target = document.getElementById("show");
+	while(target.hasChildNodes()) {
+		target.removeChild(target.firstChild);
+		}
+	}
+
+</script>
+
+</head>
+<body>
+	<h1>구구단 출력</h1>
+	<form action="#" name="frm">
+		단 : <select name="dan" id="dan">
+			<option value="">선택</option>
+			<option value="2">2단</option>
+			<option value="3">3단</option>
+			<option value="4">4단</option>
+			<option value="5">5단</option>
+			<option value="6">6단</option>
+			<option value="7">7단</option>
+			<option value="8">8단</option>
+			<option value="9">9단</option>
+		</select>
+		<button type="button" onclick="cleFunc()">삭제</button>
+		<div id="show"></div>
+		<br> <span id="header"></span>
+		<table id="myTable">
+			<tbody id="myTbody"></tbody>
+		</table>
+	</form>
+</body>
+</html>

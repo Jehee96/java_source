@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+body {
+	font-size: 12px;
+}
+</style>
+
+<script type="text/javascript">
+function makeSize(size) {
+	return function() {
+		let su = size + 10;
+		document.body.style.fontSize = su + 'px'; // 자바스크립트에 css가 적용됨
+	};
+}
+let size12 = makeSize(2);
+let size16 = makeSize(6);
+let size24 = makeSize(14);
+
+/* 
+이것을 일반적으로 아래와 같이 기술한다.
+document.addEventListener("DOMContentLoaded", function(){});
+alert("aa"); */
+
+window.onload = () => {
+	//alert("aa");
+	document.getElementById('s12').onclick = size12;
+	document.getElementById('s16').onclick = size16;
+	document.getElementById('s24').onclick = size24;
+}
+	
+	
+</script>
+
+</head>
+<body>
+클로저 샘플
+<hr>
+<p>Some Paragraph Text</p>
+<h1>Some Heading h1 Text</h1>
+<h2>Some Heading h2 Text</h2>
+<a href="#" id="s12">12</a>&nbsp;
+<a href="#" id="s16">16</a>&nbsp;
+<a href="#" id="s24">24</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

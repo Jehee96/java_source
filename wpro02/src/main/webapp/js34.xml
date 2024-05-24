@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mylist>
+	<item>
+		<code price="5000">10</code>
+		<prod>아메리카노</prod>
+	</item>
+	<item>
+		<code price="6000">20</code>
+		<prod>콜드브루</prod>
+	</item>
+	<item>
+		<code price="7000">30</code>
+		<prod>카페라떼</prod>
+	</item>
+</mylist>

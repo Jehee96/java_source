@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#btnGet").onclick=getFunc;
+	document.querySelector("#btnPost").onclick=postFunc;
+}
+
+let xhr;
+
+// 01. GET : 보내는 데이터의 양이 제한되어있고 보안에 취약함
+function getFunc() {
+	//alert("a");
+	let name = frm.name.value;
+	let age = frm.age.value;
+	//alert(name + " " + age);
+	
+	fName = "getpost.jsp?name=" + name + "&age=" + age;
+	
+	xhr = new XMLHttpRequest();
+	xhr.open('get', fName, true); // get방식
+	
+	xhr.onreadystatechange = function(){
+	  if(xhr.readyState === 4) {
+		  if(xhr.status === 200) {
+		  	  getProcess();
+		  }else{
+				alert("요청 실패 : " + xhr.status);
+		}
+	}
+}
+
+	xhr.send(null);
+}
+
+function getProcess() {
+	let data = xhr.responseText;
+	let ss = "Get 요청 결과 : " + data;
+	document.querySelector("#show").innerText = ss;
+}
+
+// 02. POST : 좀 더 많은 양의 데이터를 넘길수있고, 보안에 강함.
+function postFunc() {
+	//alert("b");
+	let name = frm.name.value;
+	let age = frm.age.value;
+	
+	xhr = new XMLHttpRequest();
+	xhr.open('post', "getpost.jsp", true); // post방식
+	
+	xhr.onreadystatechange = function(){
+	  if(xhr.readyState === 4) {
+		  if(xhr.status === 200) {
+		  	  postProcess();
+		  }else{
+				alert("요청 실패 : " + xhr.status);
+		}
+	}
+}
+	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); // post방식
+	xhr.send("name=" + name + "&age=" + age);
+}
+
+function postProcess() {
+	let data = xhr.responseText;
+	let ss = "Post 요청 결과 : " + data;
+	document.querySelector("#show").innerText = ss;
+}
+
+</script>
+</head>
+<body>
+<h2>AJAX GET, POST 요청</h2>
+<form name="frm">
+이름 : <input type="text" name="name" value="tom"><br>
+나이 : <input type="text" name="age" value="23"><br>
+<br>
+<input type="button" value="get" id="btnGet">
+<input type="button" value="post" id="btnPost">
+
+<hr>
+<div id="show"></div>
+</form>
+</body>
+</html>

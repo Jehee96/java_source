@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#btnOk").onclick = sijak;
+}
+
+let xhr;
+
+function sijak() {
+	//alert("a");
+	xhr = new XMLHttpRequest();
+	xhr.open('get', 'js36.jsp', true); //false : 동기, true : 비동기
+	
+	xhr.onreadystatechange = function(){
+	  if(xhr.readyState === 4) {
+		  if(xhr.status === 200) {
+		  	  process();
+			}
+		}
+	}
+	
+	
+	xhr.send(null);
+}
+
+function process() {
+	let data = xhr.responseText;
+	//let data = xhr.responseText;
+	//alert(data);
+	let parseData = JSON.parse(data);
+	//alert(parseData.products.length);
+	
+	
+	let str = "<table border='1'>";
+	str += "<tr><th>코드</th><th>상품명</th><th>수량</th><th>단가</th>"
+	for(let i = 0; i < parseData.products.length; i++) {
+		str += "<tr>";
+		str += "<td>" + parseData.products[i].code + "</td>";
+		str += "<td>" + parseData.products[i].sang + "</td>";
+		str += "<td>" + parseData.products[i].su + "</td>";
+		str += "<td>" + parseData.products[i].dan + "</td>";
+		str += "</tr>";
+	}
+	
+	str += "</table>";
+	document.getElementById("disp").innerHTML = str;
+	
+	
+}
+
+</script>
+
+</head>
+<body>
+<h2>MariaDB 자료 JSON 읽기</h2>
+<button id="btnOk">JSON로 읽기</button>
+<textarea rows="10" cols="50"></textarea>
+<br><br>
+<hr>
+<div id="disp"></div>
+</body>
+</html>

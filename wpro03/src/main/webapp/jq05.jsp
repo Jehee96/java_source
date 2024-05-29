@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.ResultSet"%>
+
 <%@ page language="java" contentType="text/xml; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <jikwons>
 <%
 String gubun = request.getParameter("gubun");
@@ -25,8 +28,8 @@ try{
 	if(gubun.equals("all")) {
 		pstmt = conn.prepareStatement(sql);
 	}else{
-		pstmt = conn.prepareStatement(sql + " where jikwon_name like ? ");
-		pstmt.setString(1, name + "%");
+		pstmt = conn.prepareStatement(sql + " where jikwon_name like ?");
+		pstmt.setString(1, name + "%"); // "%" : 성 입력
 	}
 	rs = pstmt.executeQuery();
 	
@@ -35,7 +38,7 @@ try{
 	while(rs.next()) {
 %>
 	<jikwon>
-		<sabun><% out.println(rs.getString("jikwon_no")); %></sabun>
+		<sabun><% out.print(rs.getString("jikwon_no")); %></sabun>
 		<irum><%= rs.getString("jikwon_name") %></irum>
 		<jik><%= rs.getString("jikwon_jik") %></jik>
 		<pay><%= rs.getString("jikwon_pay") %></pay>
@@ -54,6 +57,5 @@ try{
 		
 	}
 }
-
  %>
 </jikwons>

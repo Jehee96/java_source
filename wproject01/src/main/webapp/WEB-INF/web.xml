@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>wproject01</display-name>
+	<welcome-file-list>
+		<welcome-file>main.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+	</welcome-file-list>
+
+	<!-- Servlet 생성 후 등록 -->
+	<!-- 
+	<servlet>
+		<servlet-name>abc</servlet-name> 				 // 물리적인 이름
+		<servlet-class>pack.HelloServlet</servlet-class> // 물리적인 파일명 
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>abc</servlet-name> 				 // 물리적인 이름을 찾아감
+		<url-pattern>/HelloServlet</url-pattern> 		 // 논리적인 파일명 : 별명 //보안을 생각해서 별명을 주면 좋음
+		<url-pattern>/good.kor</url-pattern>
+		<url-pattern>/dajeong</url-pattern>
+	</servlet-mapping>
+	 -->
+</web-app>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#btnOk").onclick = function() {
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td><img src="images/sangpum01.jpg" title="개모차"></td>
+			<td><pre>	
+<font color="blue">피카노리</font>
+<h2>피카노리 반려동물 4륜 유모차</h2>
+4 ⭐⭐⭐⭐ <font color="blue" >3,037개 상품평</font>
+<hr>
+48% <del>190,000원</del>ℹ️
+<font color="red" size="5"><b>98,010원</b></font> 🚀<font color="blue">로켓배송</font>
+<hr>
+<b>이 상품은 <font color="green">내일 도착, 무료배송</font></b>
+📆<font color="green">내일(토) 6/1 도착 보장</font>(13시간 6분 내 주문 시 / 서울⋅경기 기준) 🚎무료배송
+다른 판매자 보기(2)
+
+1
+
+<b>PC에서도 간편한 결제</b> 💰쿠페이머니 💳카드 💲계좌이체
+
+
+<b>적립</b> 최대 4,900원 <u>쿠팡캐시 적립</u> · 쿠페이 머니 결제시 <font color="blue"><b>혜택보기</b></font>👉
+
+✔️ 사람/반려동물 사용대상: 반려동물용
+✔️ 쿠팡상품번호: 53093692 - 15337272202
+
+</pre></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+
+			<form action="Cart" name="frm" method="post">
+				<input type="hidden" name="name" value="피카노리 반려동물 4륜 유모차"> <input
+					type="hidden" name="price" value="98010"> <input
+					type="button" id="btnOk" value="장바구니에 상품 담기"> <input
+					type="button" value="홈으로 이동" onclick="history.back()">
+			</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

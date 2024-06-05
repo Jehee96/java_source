@@ -33,4 +33,9 @@
   	<location>/errorFileNot.jsp</location>
   </error-page> -->
   
+	 <servlet>
+	  <servlet-name>InitServlet</servlet-name>
+	  <servlet-class>pack.InitServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
 </web-app>

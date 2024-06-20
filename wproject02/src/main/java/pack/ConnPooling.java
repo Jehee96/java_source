@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+import javax.swing.text.AbstractDocument.BranchElement;
 
 public class ConnPooling {
 	private Connection conn;
@@ -102,4 +103,95 @@ public class ConnPooling {
 		}
 		return b;
 	}
+	
+	public SangpumDTO updateData(String code) { // 수정할 번호
+		SangpumDTO dto = null;
+		
+		/*
+		 * try {
+		 * String sql = "select * from sangdata where code=?";
+		 * conn = ds.getConnection();
+		 * pstmt = conn.prepareStatement(sql);
+		 * pstmt.setString(1, code);
+		 * rs = pstmt.executeQuery();
+		 * if(rs.next()) { // 자료가 있을 수도, 없을 수도 있음. 없으면 null을 만남
+		 * dto = new SangpumDTO();
+		 * dto.setCode(rs.getString("code"));
+		 * dto.setSang(rs.getString("sang"));
+		 * dto.setSu(rs.getString("su"));
+		 * dto.setDan(rs.getString("dan"));
+		 * }
+		 * 
+		 * } catch (Exception e) {
+		 * System.out.println("updateData error : " + e);
+		 * }finally {
+		 * try {
+		 * if(rs != null) rs.close();
+		 * if(pstmt != null) pstmt.close();
+		 * if(conn != null) conn.close();
+		 * 
+		 * } catch (Exception e2) {
+		 * 
+		 * }
+		 * }
+		 * return dto;
+		 */ // --------- 여기까지 수정을 위해 자료를 읽어오는 과정 ---------
+		
+		String sql = "select * from sangdata where code=?";
+		try(Connection conn = ds.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, code);
+			ResultSet rs = pstmt.executeQuery();// 자료가 있을 수도, 없을 수도 있음. 없으면 null을 만남
+				
+				if(rs.next()){
+					dto = new SangpumDTO();
+					dto.setCode(rs.getString("code"));
+					dto.setSang(rs.getString("sang"));
+					dto.setSu(rs.getString("su"));
+					dto.setDan(rs.getString("dan"));
+			 }
+			 
+			 } catch (Exception e) {
+				 System.out.println("updateData error : " + e);
+			 }
+			 return dto;
+	}
+	
+	public boolean updateDataOk(SangpumBean bean) {
+		boolean b = false;
+		String sql = "update sangdata set sang=?, su=?, dan=? where code=?";
+		
+		try(Connection conn = ds.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, bean.getSang());
+			pstmt.setString(2, bean.getSu());
+			pstmt.setString(3, bean.getDan());
+			pstmt.setString(4, bean.getCode());
+			
+			// 82번 줄의 추가작업 코드를 줄이면 이렇다!
+			if(pstmt.executeUpdate() > 0) b = true;
+			
+		} catch (Exception e) {
+			 System.out.println("updateDataOk error : " + e);
+		 }
+		return b;
+	}
+	
+	public boolean deleteData(String code) {
+		boolean b = false;
+		String sql = "delete from sangdata where code=?";
+		
+		try(Connection conn = ds.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, code);
+			
+			// 82번 줄의 추가작업 코드를 줄이면 이렇다!
+			if(pstmt.executeUpdate() > 0) b = true;
+			
+		} catch (Exception e) {
+			 System.out.println("updateDataOk error : " + e);
+		 }
+		return b;
+	}
 }
+	

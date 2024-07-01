@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>wmvc02</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
+
+	<!-- Servlet 만들 때마다 써야함. 어노테이션을 쓰면 쓸 필요가 없음. -->
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<servlet-class>pack.controllar.HobbyControllar</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name>
+		<!-- <url-pattern>/hobby.do</url-pattern> -->
+		
+		<url-pattern>*.do</url-pattern> <!-- 확장자가 do인 모든 요청은 web.xml의 HobbyControllar로 넘어간다. -->
+	</servlet-mapping>
+</web-app>
